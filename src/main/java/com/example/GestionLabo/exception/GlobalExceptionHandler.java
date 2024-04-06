@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(UserWithEmailNotFoundException.class)
     public ResponseEntity<ErrorResponse> handelUserWithEmailNotFoundException(UserWithEmailNotFoundException ex) {
-        ErrorResponse errorResponse = new ErrorResponse(401, ex.getMessage());
-        return ResponseEntity.status(401).body(errorResponse);
+        ErrorResponse errorResponse = new ErrorResponse(404, ex.getMessage());
+        return ResponseEntity.status(404).body(errorResponse);
     }
 }

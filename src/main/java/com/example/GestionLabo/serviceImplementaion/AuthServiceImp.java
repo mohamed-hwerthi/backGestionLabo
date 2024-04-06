@@ -38,19 +38,20 @@ public class AuthServiceImp implements AuthServiceDec {
 
     @Override
     public UserResponseDto login(LoginRequestDto loginRequestDto) {
-        String email = loginRequestDto.getEmail();
-        String suggestedPassword = loginRequestDto.getPassword();
-        Optional<User> userOptional = userRepository.findByEmail(email);
-        if (userOptional.isEmpty()) {
-            throw new UserWithEmailNotFoundException(email);
-        }
+            String email = loginRequestDto.getEmail();
+            String suggestedPassword = loginRequestDto.getPassword();
+            Optional<User> userOptional = userRepository.findByEmail(email);
+            if (userOptional.isEmpty()) {
+                throw new UserWithEmailNotFoundException(email);
+            } else {
+                if (userOptional.get().getPassword().equals(suggestedPassword)) {
+                    return modelMapper.map(userOptional, UserResponseDto.class);
 
-        if (userOptional.get().getPassword().equals(suggestedPassword)) {
-            return modelMapper.map(userOptional, UserResponseDto.class);
+                } else {
+                    throw new PasswordNotRelyException(suggestedPassword);
+                }
+            }
 
-        } else {
-            throw new PasswordNotRelyException(suggestedPassword);
-        }
 
     }
 

@@ -23,6 +23,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class AuthController {
     private final AuthServiceImp authService;
     private final Logger log = LoggerFactory.getLogger(AuthController.class);
+    @PostMapping("/login")
+
+
+    public  ResponseEntity <UserResponseDto >login(  @RequestBody LoginRequestDto loginRequestDto) {
+        UserResponseDto res =  authService.login(loginRequestDto);
+        return ResponseEntity.ok(res) ;
+    }
 
     @PostMapping("/registerAdmin")
     public ResponseEntity<UserResponseDto> registerAdmin(@RequestBody UserRequestDto userRequestDto) {
@@ -48,6 +55,8 @@ public class AuthController {
         RegisrterUserResponseDto user = authService.registerSimpleUser(userRequestDto);
         return ResponseEntity.ok(user);
     }
+
+
 
     @PostMapping("/loginUser")
     public ResponseEntity<UserResponseDto> loginAdmin(@RequestBody LoginRequestDto loginRequestDto) {

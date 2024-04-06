@@ -23,16 +23,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
 @Aspect
 @Component
+
+ */
 public class RestControllerAspect {
+    /*
+
     private static final Logger logger = LoggerFactory.getLogger(RestControllerAspect.class);
 
     @Autowired
     private ObjectMapper mapper;
 
-    @Pointcut("within(com.example.GestionLabo.controllers..*) " +
-            "&& @annotation(org.springframework.web.bind.annotation.RequestMapping)")
+    @Pointcut( "within(@org.springframework.stereotype.Repository *)" +
+            " || within(@org.springframework.stereotype.Service *)" +
+            " || within(@org.springframework.web.bind.annotation.RestController *)")
     public void pointcut() {
     }
 
@@ -77,5 +83,9 @@ public class RestControllerAspect {
 
         return map;
     }
+
+     */
+
+
 
 }
