@@ -11,11 +11,9 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("Labo")
+@RequestMapping("labo")
 public class LaboController {
     private  final LaboServiceImp laboServiceImp ;
-
-
 
     @GetMapping("")
     public List<Labo> getAllLAbo() {
@@ -25,8 +23,6 @@ public class LaboController {
     public Labo getLaboById(@PathVariable String id) {
         return laboServiceImp.getLaboById(id);
     }
-
-
     @DeleteMapping("/{id}")
     public void deleteLabo(@PathVariable  String id) {
         laboServiceImp.deleteLabo(id);
@@ -35,4 +31,5 @@ public class LaboController {
     public Labo saveLabo(   @RequestBody LaboType laboType) {
         return laboServiceImp.saveLabo(laboType);
     }
+
 }
