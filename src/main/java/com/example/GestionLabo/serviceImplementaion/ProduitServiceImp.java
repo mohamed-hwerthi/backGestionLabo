@@ -21,7 +21,6 @@ public class ProduitServiceImp implements ProduitServiceDec {
     private final RubriqueRepo rubriqueRepo;
     private final CategorieRepo categorieRepo;
     private final ArmoireRepo armoireRepo ;
-    private final ModelMapper modelMapper;
     private  final FournisseurRepo fournisseurRepo ;
     private static final Logger log = LoggerFactory.getLogger(ProduitServiceImp.class);
 

@@ -24,7 +24,7 @@ public class ProduitController {
         return ResponseEntity.ok(product);
     }
 
-    @GetMapping("/all")
+    @GetMapping("")
 
     public ResponseEntity<List<Produit>> getAllProducts() {
         List<Produit> allproducts = ProduitServiceImp.getAllProducts();
@@ -40,7 +40,7 @@ public class ProduitController {
 
     @DeleteMapping("{id}")
 
-    public void deleteProduct(String id) {
+    public void deleteProduct(   @PathVariable("id") String id) {
         ProduitServiceImp.deleteProduct(id);
     }
 

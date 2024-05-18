@@ -1,6 +1,7 @@
 package com.example.GestionLabo.controllers;
 
-import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.service.annotation.GetExchange;
 import com.example.GestionLabo.models.Categorie;
 import com.example.GestionLabo.requestDto.CategorieRequestDto;
@@ -9,20 +10,16 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("Categorie")
+@Slf4j
 
 public class CategorieController {
     private final CategorieServiceImp categorieServiceImp;
 
-    @GetExchange("/all")
+    @GetMapping("")
 
     public List<Categorie> getAll() {
         return categorieServiceImp.getAll();
@@ -41,7 +38,8 @@ public class CategorieController {
 
     @PostMapping("")
 
-    public ResponseEntity<Categorie> addCategorie(CategorieRequestDto cat) {
+    public ResponseEntity<Categorie> addCategorie(  @RequestBody String  cat) {
+        log.info(cat);
         Categorie categorie = categorieServiceImp.addCategorie(cat);
         return ResponseEntity.ok(categorie);
     }

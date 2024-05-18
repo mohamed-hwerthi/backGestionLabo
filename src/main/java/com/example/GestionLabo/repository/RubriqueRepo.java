@@ -8,4 +8,5 @@ import com.example.GestionLabo.models.Rubrique;
 @Repository
 
 public interface RubriqueRepo extends MongoRepository<Rubrique, String> {
+
 }

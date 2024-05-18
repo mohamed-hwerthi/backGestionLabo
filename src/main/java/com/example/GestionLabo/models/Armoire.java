@@ -20,7 +20,6 @@ public class Armoire {
     private String id;
     private String designation;
     @DBRef
-    @JsonIgnore
     private SalleTp salleTp;
     @DBRef
     private List<Produit> produits = new ArrayList<>();

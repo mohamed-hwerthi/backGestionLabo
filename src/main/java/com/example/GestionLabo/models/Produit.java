@@ -25,7 +25,6 @@ public class Produit {
     private ProduitType type;
     private int quantiteInitiale;
     @DBRef
-    @JsonIgnore
     private Categorie categorie;
     @DBRef
     @JsonIgnore

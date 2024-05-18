@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 
-public class RubriquerServiceImp implements RubriqueServiceDec {
+public class RubriqueServiceImp implements RubriqueServiceDec {
     private final RubriqueRepo rubriqueRepo;
     private final CategorieRepo categorieRepo;
 

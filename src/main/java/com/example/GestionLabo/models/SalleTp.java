@@ -21,9 +21,9 @@ public class SalleTp {
     @Id
     private String id;
     private String Numero;
-    @JsonIgnore
     @DBRef
     private Labo labo  ;
     @DBRef
+    @JsonIgnore
     private List<Armoire>armoires = new ArrayList<>();
 }

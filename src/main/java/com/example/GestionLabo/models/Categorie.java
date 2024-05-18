@@ -1,5 +1,6 @@
 package com.example.GestionLabo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -18,7 +19,9 @@ public class Categorie {
     private String id;
     private String designation;
     @DBRef
+    @JsonIgnore
     private List<Rubrique> rubriques = new ArrayList<>();
     @DBRef
+    @JsonIgnore
     private List<Produit> produits = new ArrayList<>();
 }

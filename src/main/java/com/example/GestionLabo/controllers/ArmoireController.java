@@ -3,6 +3,7 @@ package com.example.GestionLabo.controllers;
 
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -17,14 +18,14 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/Armoire")
 @RequiredArgsConstructor
+@Slf4j
 public class ArmoireController {
-    private final Logger logger = LoggerFactory.getLogger(ArmoireController.class);
+
     private  final ArmorieServiceImp armorieServiceImp;
 
     @GetMapping("")
     public  ResponseEntity< List<Armoire>> getAllArmoires() {
         List<Armoire>allArms=  armorieServiceImp.getAllArmoires();
-
         return  ResponseEntity.ok(allArms);
     }
 
@@ -38,8 +39,6 @@ public class ArmoireController {
     @PostMapping("")
 
     public Armoire saveArmoire(@RequestBody() ArmoireRequestDto armoireRequestDto) {
-        logger.info("contoller armoire saved armoire");
-        logger.info(armoireRequestDto.toString());
         return armorieServiceImp.saveArmoire(armoireRequestDto);
     }
 

@@ -12,6 +12,6 @@ public interface CategorieServiceDec {
 
     void delete(String id);
 
-    Categorie addCategorie(CategorieRequestDto cat);
+    Categorie addCategorie(String cat);
 
 }

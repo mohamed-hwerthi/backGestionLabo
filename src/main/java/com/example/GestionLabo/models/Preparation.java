@@ -5,7 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import java.time.LocalDateTime;
+
+import java.time.LocalDate;
+
 import java.util.List;
 
 
@@ -19,7 +21,7 @@ public class Preparation {
     @Id
     private  String id  ;
     private  String designation  ;
-    private LocalDateTime date  ;
+    private LocalDate date  ;
     private  List<PreparationProduit>preparationProduits ;
 
 

@@ -45,9 +45,9 @@ public class CategorieServiceImp implements CategorieServiceDec {
     }
 
     @Override
-    public Categorie addCategorie(CategorieRequestDto cat) {
+    public Categorie addCategorie(String cat) {
         Categorie categorie = new Categorie();
-        categorie.setDesignation(cat.getDesignation());
+        categorie.setDesignation(cat);
         return this.categorieRepo.save(categorie);
     }
 

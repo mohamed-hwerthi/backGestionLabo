@@ -22,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 public class PreparationController {
     private final PreparationServiceImp preparationServiceImp;
 
-    @GetMapping("/all")
+    @GetMapping("")
 
     public List<Preparation> getAllPreparations() {
         return preparationServiceImp.getAllPreparations();

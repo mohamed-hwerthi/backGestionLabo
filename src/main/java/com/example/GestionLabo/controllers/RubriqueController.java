@@ -2,6 +2,7 @@ package com.example.GestionLabo.controllers;
 
 import java.util.List;
 
+import com.example.GestionLabo.serviceImplementaion.RubriqueServiceImp;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,38 +14,38 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.GestionLabo.models.Rubrique;
 import com.example.GestionLabo.requestDto.RubriqueRequestDto;
-import com.example.GestionLabo.serviceImplementaion.RubriquerServiceImp;
+
 
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/rubrique")
+@RequestMapping("/Rubrique")
 @RequiredArgsConstructor
 public class RubriqueController {
-    private final RubriquerServiceImp rubriquerServiceImp;
+    private final RubriqueServiceImp rubriqueServiceImp;
 
-    @GetMapping("/all")
+    @GetMapping("")
 
     public List<Rubrique> getAll() {
-        return rubriquerServiceImp.getAll();
+        return rubriqueServiceImp.getAll();
     }
 
     @GetMapping("/one/{id}")
     public Rubrique getRubriqueById(@PathVariable() String id) {
-        return rubriquerServiceImp.getRubriqueById(id);
+        return rubriqueServiceImp.getRubriqueById(id);
     }
 
     @DeleteMapping("{id}")
 
     public ResponseEntity<String> deleteRubrique(@PathVariable("id") String id) {
-        rubriquerServiceImp.deleteRubrique(id);
+        rubriqueServiceImp.deleteRubrique(id);
         return ResponseEntity.ok("Rubrique deleted");
     }
 
     @PostMapping("")
 
     public ResponseEntity<Rubrique> addRubrique(@RequestBody() RubriqueRequestDto rub) {
-        Rubrique response = rubriquerServiceImp.addRubrique(rub);
+        Rubrique response = rubriqueServiceImp.addRubrique(rub);
         return ResponseEntity.ok(response);
 
     }

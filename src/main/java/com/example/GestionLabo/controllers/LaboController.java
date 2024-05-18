@@ -19,7 +19,7 @@ public class LaboController {
     public List<Labo> getAllLAbo() {
         return laboServiceImp.getAllLAbo();
     }
-@GetMapping("/one/{id}")
+    @GetMapping("/one/{id}")
     public Labo getLaboById(@PathVariable String id) {
         return laboServiceImp.getLaboById(id);
     }
@@ -27,8 +27,8 @@ public class LaboController {
     public void deleteLabo(@PathVariable  String id) {
         laboServiceImp.deleteLabo(id);
     }
-@PostMapping("")
-    public Labo saveLabo(   @RequestBody LaboType laboType) {
+    @PostMapping("")
+    public Labo saveLabo(   @RequestBody  LaboType laboType) {
         return laboServiceImp.saveLabo(laboType);
     }
 
