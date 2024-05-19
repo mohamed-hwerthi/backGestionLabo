@@ -23,6 +23,7 @@ import java.util.List;
 public class Tp {
     @Id
     private  String id  ;
+    private String manip  ;
     private TpType type ;
     private LocalDateTime jourTp ;
     @DBRef

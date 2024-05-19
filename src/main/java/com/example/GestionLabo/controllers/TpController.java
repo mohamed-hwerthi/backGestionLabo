@@ -19,9 +19,9 @@ public class TpController {
     private final TpServiceImp tpServiceImp;
     private final Logger logger = LoggerFactory.getLogger(TpController.class);
 
-    @GetMapping("/all")
-    public List<Tp> getAllPreparations() {
-        return tpServiceImp.getAllPreparations();
+    @GetMapping("")
+    public List<Tp> getAllTps() {
+        return tpServiceImp.getAllTp();
     }
 
     @GetMapping("/one/{id}")
@@ -33,7 +33,7 @@ public class TpController {
     @PostMapping("")
 
     public Tp saveTp(@RequestBody() TpRequestDto tp) {
-        logger.info(String.valueOf(tp));
+
         return tpServiceImp.saveTp(tp);
     }
 

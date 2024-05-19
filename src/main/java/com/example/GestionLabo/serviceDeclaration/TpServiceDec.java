@@ -6,7 +6,7 @@ import com.example.GestionLabo.models.Tp;
 import com.example.GestionLabo.requestDto.TpRequestDto;
 
 public interface TpServiceDec {
-    List<Tp> getAllPreparations();
+    List<Tp> getAllTp();
 
     Tp getTpById(String id);
 

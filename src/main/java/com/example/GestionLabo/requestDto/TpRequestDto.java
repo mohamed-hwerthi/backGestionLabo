@@ -13,6 +13,7 @@ import java.util.List;
 @Data
 
 public class TpRequestDto {
+    private String manip ;
     private TpType tpType;
     private LocalDateTime jourTp;
     private String idProf;

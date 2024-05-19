@@ -35,7 +35,7 @@ public class TpServiceImp implements TpServiceDec {
     private final Logger logger = LoggerFactory.getLogger(TpServiceImp.class);
 
     @Override
-    public List<Tp> getAllPreparations() {
+    public List<Tp> getAllTp() {
         return this.tpRepo.findAll();
     }
 
@@ -57,6 +57,7 @@ public class TpServiceImp implements TpServiceDec {
         SalleTp salleTp = optionalSalle.orElseThrow(() -> new CustomNotFoundException("salleTp", tp.getIdSalleTp()));
         User prof = optionalProf.orElseThrow(() -> new CustomNotFoundException("prof", tp.getIdProf()));
         Tp newTp = new Tp();
+        newTp.setManip(tp.getManip());
         newTp.setJourTp(tp.getJourTp());
         newTp.setNiveauScolaire(tp.getNiveauScolaire());
         newTp.setType(tp.getTpType());
