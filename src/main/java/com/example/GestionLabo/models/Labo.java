@@ -18,7 +18,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Labo {
-
     @Id
     private String id   ;
     private LaboType laboType  ;

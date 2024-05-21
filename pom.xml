@@ -28,6 +28,7 @@
 			<version>2.0.3</version>
 		</dependency>
 
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -68,6 +69,7 @@
 
 	<build>
 		<plugins>
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -80,7 +82,9 @@
 					</excludes>
 				</configuration>
 			</plugin>
+
 		</plugins>
+
 	</build>
 
 </project>
