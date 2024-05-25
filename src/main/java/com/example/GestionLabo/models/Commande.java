@@ -19,9 +19,9 @@ import java.util.List;
 public class Commande {
     @Id
     private  String id  ;
+    private String designation ;
     private LocalDate Date ;
     private  String observation   ;
     private Long numero ;
-    private User user ;
     private List<ProduitCommande>produitCommandes ;
 }

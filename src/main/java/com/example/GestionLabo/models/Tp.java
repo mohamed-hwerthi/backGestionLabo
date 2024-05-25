@@ -11,8 +11,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Document(collection = "tp")
@@ -25,9 +25,7 @@ public class Tp {
     private  String id  ;
     private String manip  ;
     private TpType type ;
-    private LocalDateTime jourTp ;
-    @DBRef
-    private User prof ;
+    private Date jourTp ;
     @DBRef
     private SalleTp salleTp ;
     private NiveauScolaire niveauScolaire ;

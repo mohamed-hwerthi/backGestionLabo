@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 public class ProduitCommande {
-    private  Produit produit ;
-    private int quantiteProduit ;
+    private  String   nomPrduit  ;
+    private  String quantite   ;
 }

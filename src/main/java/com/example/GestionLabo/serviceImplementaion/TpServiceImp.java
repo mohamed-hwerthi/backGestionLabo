@@ -52,18 +52,18 @@ public class TpServiceImp implements TpServiceDec {
 
     @Override
     public Tp saveTp(TpRequestDto tp) {
-        Optional<User> optionalProf = this.userRepository.findById(tp.getIdProf());
+         // Optional<User> optionalProf = this.userRepository.findById(tp.getIdProf());
         Optional<SalleTp> optionalSalle = this.salleTpRepo.findById(tp.getIdSalleTp());
         SalleTp salleTp = optionalSalle.orElseThrow(() -> new CustomNotFoundException("salleTp", tp.getIdSalleTp()));
-        User prof = optionalProf.orElseThrow(() -> new CustomNotFoundException("prof", tp.getIdProf()));
+          // User prof = optionalProf.orElseThrow(() -> new CustomNotFoundException("prof", tp.getIdProf()));
         Tp newTp = new Tp();
         newTp.setManip(tp.getManip());
         newTp.setJourTp(tp.getJourTp());
         newTp.setNiveauScolaire(tp.getNiveauScolaire());
         newTp.setType(tp.getTpType());
         newTp.setSalleTp(salleTp) ;
-        newTp.setProf(prof);
-        this.userRepository.save(prof) ;
+         // newTp.setProf(prof);
+         // this.userRepository.save(prof) ;
         for (String id : tp.getIdsProduit()) {
             Optional<Produit> optionalProduit = this.produitRepo.findById(id);
             Produit produit = optionalProduit.orElseThrow(() -> new CustomNotFoundException("produit", id));
