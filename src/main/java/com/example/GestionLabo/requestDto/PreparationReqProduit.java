@@ -6,6 +6,7 @@ import lombok.Data;
 
 public class PreparationReqProduit{
     private  String idProduit  ;
+
     private  int quantite  ;
 }
 

@@ -44,6 +44,7 @@ public class ProduitServiceImp implements ProduitServiceDec {
                 .reference(produitReqDto.getReference())
                 .quantiteInitiale(produitReqDto.getQuantiteInitiale())
                 .uniteMesure(produitReqDto.getUniteMesure())
+                .quantiteRestante(produitReqDto.getQuantiteInitiale())
                 .build();
         Produit savedProduit = this.produitRepo.save(produit);
         categorie.getProduits().add(savedProduit);
@@ -82,7 +83,45 @@ public class ProduitServiceImp implements ProduitServiceDec {
 
     @Override
     public Produit modifieProuct(Produit produit) {
-        throw new RuntimeException("method not yet implemented");
+        Optional<Produit> existingProduitOptional = produitRepo.findById(produit.getId());
+        if (existingProduitOptional.isEmpty()) {
+            throw new CustomNotFoundException("product", produit.getId());
+        }
+        Produit existingProduit = existingProduitOptional.get();
+        existingProduit.setDesignation(produit.getDesignation());
+        existingProduit.setReference(produit.getReference());
+        existingProduit.setType(produit.getType());
+        existingProduit.setQuantiteInitiale(produit.getQuantiteInitiale());
+        existingProduit.setQuantiteUtilise(produit.getQuantiteUtilise());
+        existingProduit.setQuantiteRestante(produit.getQuantiteRestante());
+        existingProduit.setQuanitePerdu(produit.getQuanitePerdu());
+        existingProduit.setUniteMesure(produit.getUniteMesure());
+        if (produit.getCategorie() != null) {
+            existingProduit.setCategorie(produit.getCategorie());
+        }
+        if (produit.getFournisseur() != null) {
+            existingProduit.setFournisseur(produit.getFournisseur());
+        }
+        if (produit.getRubrique() != null) {
+            existingProduit.setRubrique(produit.getRubrique());
+        }
+        if (produit.getArmoire() != null) {
+            existingProduit.setArmoire(produit.getArmoire());
+        }
+        return produitRepo.save(existingProduit);
+
+    }
+
+    @Override
+    public void inventaireProduit(Produit produit) {
+        Optional<Produit>optionalProduit = produitRepo.findById(produit.getId()) ;
+        if (optionalProduit.isPresent()) {
+            Produit newProduct = optionalProduit.get() ;
+            newProduct.setQuantiteRestante(produit.getQuantiteRestante());
+            newProduct.setQuanitePerdu(produit.getQuanitePerdu());
+            produitRepo.save(newProduct);
+        }
+
     }
 
 }

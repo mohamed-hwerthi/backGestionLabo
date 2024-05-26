@@ -21,6 +21,7 @@ public class Preparation {
     @Id
     private  String id  ;
     private  String designation  ;
+    private  String quantiteEau  ;
     private LocalDate date  ;
     private  List<PreparationProduit>preparationProduits ;
 

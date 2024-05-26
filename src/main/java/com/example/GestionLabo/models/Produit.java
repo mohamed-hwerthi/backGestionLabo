@@ -24,6 +24,9 @@ public class Produit {
     private String reference;
     private ProduitType type;
     private int quantiteInitiale;
+    private int quantiteUtilise ;
+    private int quantiteRestante  ;
+    private int quanitePerdu ;
     @DBRef
     private Categorie categorie;
     @DBRef
